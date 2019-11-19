@@ -1,4 +1,4 @@
-## AltTab coding challenge
+## coding challenge
 
 ### You would need:
 * Node.js
