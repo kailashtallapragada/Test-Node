@@ -1,14 +1,15 @@
 
 const  { AuthenticationController } = require('../controllers/authentication');
 const  { ProfileController } = require('../controllers/profile');
+const  { json } = require('body-parser');
 
 module.exports = (app) => {
   const authController  = new AuthenticationController(app.get('database'));
   const profileController  = new ProfileController(app.get('database'));
 
-  app.post('/api/register', authController.registerUser);
+  app.post('/api/register', json(), authController.registerUser);
   app.get('/api/profile', profileController.getUserProfile);
-  app.post('/api/login', authController.logIn);
+  app.post('/api/login', json(), authController.logIn);
   app.get('/api/logout', authController.logOut);
 
 

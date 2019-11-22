@@ -7,6 +7,10 @@ let app = require('../../app');
 let _user = 'integration_test_' + Math.floor(Date.now() / 1000) + '@alttab.co';
 
 describe('Authentication Controller', () => {
+  it('should wait for server to start', (done) => {
+    setTimeout(done, 5000);
+  }).timeout
+  (6000);
 
   it('should register a new user and return token', () => {
     let _token = null;
